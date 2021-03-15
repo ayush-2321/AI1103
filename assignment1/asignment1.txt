@@ -124,7 +124,7 @@ renewcommand{thefigure}{theenumi}
 renewcommand{thetable}{theenumi}
 Download all python codes from 
 begin{lstlisting}
-link1
+https://github.com/ayush-2321/AI1103/blob/main/assignment1/problem(a).py
 end{lstlisting}
 %
 and latex-tikz codes from 
