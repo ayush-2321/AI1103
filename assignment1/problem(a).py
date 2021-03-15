@@ -7,7 +7,7 @@ from scipy.stats import binom
 
 
 
-#Simlen
+#Simulation length
 simlen=1000
 
 #Number of questions
