@@ -130,7 +130,7 @@ end{lstlisting}
 and latex-tikz codes from 
 %
 begin{lstlisting}
-link 2
+https://github.com/ayush-2321/AI1103/blob/main/assignment1/asignment1.txt
 end{lstlisting}
 section{  Problem(a)(prob. misc. 5.8)}
 On a multiple choice examination with 3 possible answers of each of the five questions, what is the probability that the candidate would get four or more correct answers just by guessing
