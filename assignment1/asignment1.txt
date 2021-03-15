@@ -1,189 +1,189 @@
 
   
-documentclass[journal,12pt,twocolumn]{IEEEtran}
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
 
-usepackage{setspace}
-usepackage{gensymb}
-singlespacing
-usepackage[cmex10]{amsmath}
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
 
-usepackage{amsthm}
+\usepackage{amsthm}
 
-usepackage{mathrsfs}
-usepackage{txfonts}
-usepackage{stfloats}
-usepackage{bm}
-usepackage{cite}
-usepackage{cases}
-usepackage{subfig}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
 
-usepackage{longtable}
-usepackage{multirow}
+\usepackage{longtable}
+\usepackage{multirow}
 
-usepackage{enumitem}
-usepackage{mathtools}
-usepackage{steinmetz}
-usepackage{tikz}
-usepackage{circuitikz}
-usepackage{verbatim}
-usepackage{tfrupee}
-usepackage[breaklinks=true]{hyperref}
-usepackage{graphicx}
-usepackage{tkz-euclide}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
 
-usetikzlibrary{calc,math}
-usepackage{listings}
-    usepackage{color}                                            %%
-    usepackage{array}                                            %%
-    usepackage{longtable}                                        %%
-    usepackage{calc}                                             %%
-    usepackage{multirow}                                         %%
-    usepackage{hhline}                                           %%
-    usepackage{ifthen}                                           %%
-    usepackage{lscape}     
-usepackage{multicol}
-usepackage{chngcntr}
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
 
-DeclareMathOperator{Res}{Res}
+\DeclareMathOperator*{\Res}{Res}
 
-renewcommandthesection{arabic{section}}
-renewcommandthesubsection{thesection.arabic{subsection}}
-renewcommandthesubsubsection{thesubsection.arabic{subsubsection}}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
 
-renewcommandthesectiondis{arabic{section}}
-renewcommandthesubsectiondis{thesectiondis.arabic{subsection}}
-renewcommandthesubsubsectiondis{thesubsectiondis.arabic{subsubsection}}
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
 
 
-hyphenation{op-tical net-works semi-conduc-tor}
-definputGnumericTable{}                                 %%
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
 
-lstset{
+\lstset{
 %language=C,
 frame=single, 
 breaklines=true,
 columns=fullflexible
 }
-begin{document}
+\begin{document}
 
-newcommand{BEQA}{begin{eqnarray}}
-newcommand{EEQA}{end{eqnarray}}
-newcommand{define}{stackrel{triangle}{=}}
-bibliographystyle{IEEEtran}
-raggedbottom
-setlength{parindent}{0pt}
-providecommand{mbf}{mathbf}
-providecommand{pr}[1]{ensuremath{Prleft(#1right)}}
-providecommand{qfunc}[1]{ensuremath{Qleft(#1right)}}
-providecommand{sbrak}[1]{ensuremath{{}left[#1right]}}
-providecommand{lsbrak}[1]{ensuremath{{}left[#1right.}}
-providecommand{rsbrak}[1]{ensuremath{{}left.#1right]}}
-providecommand{brak}[1]{ensuremath{left(#1right)}}
-providecommand{lbrak}[1]{ensuremath{left(#1right.}}
-providecommand{rbrak}[1]{ensuremath{left.#1right)}}
-providecommand{cbrak}[1]{ensuremath{left{#1right}}}
-providecommand{lcbrak}[1]{ensuremath{left{#1right.}}
-providecommand{rcbrak}[1]{ensuremath{left.#1right}}}
-theoremstyle{remark}
-newtheorem{rem}{Remark}
-newcommand{sgn}{mathop{mathrm{sgn}}}
-providecommand{abs}[1]{vert#1vert}
-providecommand{res}[1]{Resdisplaylimits_{#1}} 
-providecommand{norm}[1]{lVert#1rVert}
-%providecommand{norm}[1]{lVert#1rVert}
-providecommand{mtx}[1]{mathbf{#1}}
-providecommand{mean}[1]{E[ #1 ]}
-providecommand{fourier}{overset{mathcal{F}}{ rightleftharpoons}}
-%providecommand{hilbert}{overset{mathcal{H}}{ rightleftharpoons}}
-providecommand{system}{overset{mathcal{H}}{ longleftrightarrow}}
-	%newcommand{solution}[2]{textbf{Solution}{#1}}
-newcommand{solution}{noindent textbf{Solution }}
-newcommand{cosec}{,text{cosec},}
-providecommand{dec}[2]{ensuremath{overset{#1}{underset{#2}{gtrless}}}}
-newcommand{myvec}[1]{ensuremath{begin{pmatrix}#1end{pmatrix}}}
-newcommand{mydet}[1]{ensuremath{begin{vmatrix}#1end{vmatrix}}}
-numberwithin{equation}{subsection}
-makeatletter
-@addtoreset{figure}{problem}
-makeatother
-letStandardTheFigurethefigure
-letvecmathbf
-renewcommand{thefigure}{theproblem}
-defputbox#1#2#3{makebox[0in][l]{makebox[#1][l]{}raisebox{baselineskip}[0in][0in]{raisebox{#2}[0in][0in]{#3}}}}
-     defrightbox#1{makebox[0in][r]{#1}}
-     defcentbox#1{makebox[0in]{#1}}
-     deftopbox#1{raisebox{-baselineskip}[0in][0in]{#1}}
-     defmidbox#1{raisebox{-0.5baselineskip}[0in][0in]{#1}}
-vspace{3cm}
-title{Assignment 1}
-author{Ayush Kumar Singh - AI20BTECH11028}
-maketitle
-newpage
-bigskip
-renewcommand{thefigure}{theenumi}
-renewcommand{thetable}{theenumi}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\vert#1\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E[ #1 ]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 1}
+\author{Ayush Kumar Singh - AI20BTECH11028}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
 Download all python codes from 
-begin{lstlisting}
+\begin{lstlisting}
 https://github.com/ayush-2321/AI1103/blob/main/assignment1/problem(a).py
-end{lstlisting}
+\end{lstlisting}
 %
 and latex-tikz codes from 
 %
-begin{lstlisting}
+\begin{lstlisting}
 https://github.com/ayush-2321/AI1103/blob/main/assignment1/asignment1.txt
-end{lstlisting}
-section{  Problem(a)(prob. misc. 5.8)}
+\end{lstlisting}
+\section*{  Problem(a)(prob. misc. 5.8)}
 On a multiple choice examination with 3 possible answers of each of the five questions, what is the probability that the candidate would get four or more correct answers just by guessing
 
-section{Solution}
-Let $X_i in (0,1)$ be a random variable where $X_i=1$ represents a successful guess and $X_i = 0$ represents unsuccessful guess on the $i^{th}$ question.
+\section*{Solution}
+Let $X_i \in (0,1)$ be a random variable where $X_i=1$ represents a successful guess and $X_i = 0$ represents unsuccessful guess on the $i^{th}$ question.\\
 
- $$ p=frac{1}{3}$$
-begin{align}
- X= sum_{i=1}^{n}X_{i} 
-end{align}
+ $$ p=\frac{1}{3}$$
+\begin{align}
+ X= \sum_{i=1}^{n}X_{i} 
+\end{align}
 
-where n is the total number of questions. So, X has a binomial distribution.
+where n is the total number of questions. So, X has a binomial distribution.\\
 
-$$pr(X geq r) = sum_{k=r}^{n} binom{n}{r}p^k(1-p)^{n-k}$$
+$$pr(X \geq r) = \sum_{k=r}^{n} \binom{n}{r}p^k(1-p)^{n-k}$$
 
-Now, in this case n=5 and r=4
-$$Pr_{x}(4)=frac{10}{243}$$
-$$ Pr_{x}(5)=frac{1}{243}$$
-Hence, required probability= $frac{11}{243}$ 
+Now, in this case n=5 and r=4\\
+$$Pr_{x}(4)=\frac{10}{243}$$
+$$ Pr_{x}(5)=\frac{1}{243}$$
+Hence, required probability= $\frac{11}{243}$ 
 
 
 
 
  
- section{problem(b)}
- Five cards are drawn successively from a well shuffled deck of 52 cards. What is the probability that
- begin{enumerate}[label=roman.]
-     item All the five cards are spades.
-     item only 3 cards are spade.
-     item no cards are spade.
- end{enumerate}
+ \section*{problem(b)}
+ Five cards are drawn successively from a well shuffled deck of 52 cards. What is the probability that\\
+ \begin{enumerate}[label=\roman*.]
+     \item All the five cards are spades.
+     \item only 3 cards are spade.
+     \item no cards are spade.
+ \end{enumerate}
   
-  section{solution}
+  \section*{solution}
   
-     Let $X_{i} in (0,1)$ be a random variable which denotes whether spade is drawn at the $i^{th}$ draw.
-     $$ X=sum_{i=1}^{i=5}X_{i}$$
+     Let $X_{i} \in (0,1)$ be a random variable which denotes whether spade is drawn at the $i^{th}$ draw.\\
+     $$ X=\sum_{i=1}^{i=5}X_{i}$$
      where X denotes the number of spades obtained.
-     begin{enumerate}[label=roman.]
-        item 
-            $X=5$
-            $$Pr_x(5)=frac{{13 choose 5}}{{52 choose 5}}$$
-            $$implies Pr_x(5)= 0.0049$$
+     \begin{enumerate}[label=\roman*.]
+        \item 
+            $X=5$\\
+            $$Pr_x(5)=\frac{{13 \choose 5}}{{52 \choose 5}}$$
+            $$\implies Pr_x(5)= 0.0049$$
             
-        item
-            $X=3$
-            $$Pr_x(5)=frac{{13 choose 3}{39choose 2}}{{52 choose 5}}$$
-            $$ implies Pr_x(3)=0.081$$
+        \item
+            $X=3$\\
+            $$Pr_x(5)=\frac{{13 \choose 3}{39\choose 2}}{{52 \choose 5}}$$
+            $$ \implies Pr_x(3)=0.081$$
             
-        item
-            $X=0$
-            $$Pr_x(5)=frac{{39 choose 5}}{{52 choose 5}}$$
-            $$implies Pr_x(5)= 0.221$$
+        \item
+            $X=0$\\
+            $$Pr_x(5)=\frac{{39 \choose 5}}{{52 \choose 5}}$$
+            $$\implies Pr_x(5)= 0.221$$
             
             
            
@@ -191,7 +191,7 @@ Hence, required probability= $frac{11}{243}$
   
   
   
-  end{enumerate}
+  \end{enumerate}
 
 
-end{document}
+\end{document}
