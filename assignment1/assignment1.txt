@@ -87,6 +87,8 @@ columns=fullflexible
 \theoremstyle{remark}
 \newtheorem{rem}{Remark}
 \newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\newcommand{\comb}[2]{{}_{#1}\mathrm{C}_{#2}}
+
 \providecommand{\abs}[1]{\vert#1\vert}
 \providecommand{\res}[1]{\Res\displaylimits_{#1}} 
 \providecommand{\norm}[1]{\lVert#1\rVert}
@@ -145,7 +147,7 @@ Let $X_i \in (0,1)$ be a random variable where $X_i=1$ represents a successful g
 
 where n is the total number of questions. So, X has a binomial distribution.\\
 \begin{align}
-$$\pr{X \geq r} = \sum_{k=r}^{n} \binom{n}{r}p^k(1-p)^{n-k}$$
+\pr{X \geq r} = \sum_{k=r}^{n} \binom{n}{r}p^k(1-p)^{n-k} \nonumber \\
 \end{align}
 
 Now, in this case n=5 and r=4\\
@@ -178,13 +180,16 @@ Hence, required probability= $\frac{11}{243}$  \\
    
      Since, $\pr{x}=\frac{ \text{number of favourable outcome}}{\text{total number of outcomes}}$\\
       $$\pr{x}=\frac{{13 \choose x}{39 \choose (5-x)}}{{52 \choose 5}}$$
+\begin{center}
+ \lable{TABLE}
+ \end{center}
   \begin{table}[h]
-\resizebox{11cm}{1cm}{\begin{tabular}{|l|l|l|l|l|l|l|}
+\resizebox{10.6cm}{0.8cm}{\begin{tabular}{|l|l|l|l|l|l|l|}
 
 \hline
 X    & 0 & 1 & 2  & 3  & 4  & 5                     \\ \hline 
 
-P(X) & $\frac{{13 \choose 0}{39 \choose 5}}{{52 \choose 5}}$ & $\frac{{13 \choose 1}{39 \choose 4}}{{52 \choose 5}}$ & $\frac{{13 \choose 2}{39 \choose 3}}{{52 \choose 5}}$ & $\frac{{13 \choose 3}{39 \choose 4}}{{52 \choose 5}}$ & $\frac{{13 \choose 4}{39 \choose 1}}{{52 \choose 5}}$ & $\frac{{13 \choose 5}{39 \choose 0}}{{52 \choose 5}}$ \\ 
+P(X) & $\frac{\comb{13}{0}\times\comb{39}{5}}{\comb{52}{5}}$ & $\frac{\comb{13}{1}\times\comb{39}{4}}{\comb{52}{5}}$ & $\frac{\comb{13}{2}\times\comb{39}{3}}{\comb{52}{5}}$ & $\frac{\comb{13}{3}\times\comb{39}{2}}{\comb{52}{5}}$ & $\frac{\comb{13}{4}\times\comb{39}{1}}{\comb{52}{5}}$ & $\frac{\comb{13}{5}\times\comb{39}{0}}{\comb{52}{5}}$ \\ 
 \hline
 
 \end{tabular} }
@@ -193,20 +198,22 @@ P(X) & $\frac{{13 \choose 0}{39 \choose 5}}{{52 \choose 5}}$ & $\frac{{13 \choos
         \item 
        
             $X=5$\\
-            $$\pr{X=5}=\frac{{13 \choose 5}}{{52 \choose 5}}$$
-            $$\implies \pr{X=5}= 0.0049$$
-            
+            \begin{align}
+            \pr{X=5}=\frac{\comb{13}{5}}{\comb{52}{5}} \nonumber \\ 
+            \implies \pr{X=5}= 0.0049 \nonumber
+            \end{align}
         \item
             $X=3$\\
-            $$P=\pr{X=3}=\frac{{13 \choose 3}{39\choose 2}}{{52 \choose 5}}$$
-            $$ \implies \Pr{X=3}=0.081$$
-            
+             \begin{align}
+            \pr{X=3}=\frac{\comb{13}{3}\times\comb{39}{2}}{\comb{52}{5}} \nonumber\\
+             \implies \Pr{X=3}=0.081 \nonumber
+            \end{align}
         \item
-            $X=0$\\
-            $$\pr{X=0}=\frac{{39 \choose 5}}{{52 \choose 5}}$$
-            $$\implies \pr{X=0}= 0.221$$
-            
-            
+        $X=0$\\
+            \begin{align}
+            \pr{X=3}=\frac{\comb{39}{5}}{\comb{52}{5}} \nonumber\\
+             \implies \Pr{X=3}=0.081 \nonumber
+            \end{align}
     
 \end{enumerate}
 \end{document}
