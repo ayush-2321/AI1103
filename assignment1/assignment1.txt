@@ -146,10 +146,10 @@ X= \sum_{i=1}^{n}X_{i}
 
 where n is the total number of questions. So, X has a binomial distribution.\\
 \begin{align}
-\pr{X \geq r} = \sum_{k=r}^{n} \binom{n}{r}p^k(1-p)^{n-k} \nonumber \\
+\pr{X \geq r} = \sum_{k=r}^{n} \binom{n}{r}p^k(1-p)^{n-k} \label{1.0.2} 
 \end{align}
 
-Now, in this case n=5 and r=4\\
+Now, in this case n=5 and r=4. From \eqref{1.0.2}\\
 \begin{align}
 \pr{X=4}=\frac{10}{243}  \notag \\ 
  \pr{X=5}=\frac{1}{243}   \notag \\ 
@@ -178,8 +178,9 @@ Hence, required probability= $\frac{11}{243}$  \\
      where X denotes the number of spades obtained. \\
     \begin{align}
      Since, \pr{x}=\frac{ \text{number of favourable outcome}}{\text{total number of outcomes}} \notag \\
-      \pr{x}=\frac{\comb{13}{x}\times \comb{39}{5-x}}{\comb{52}{5}} \notag
+      \pr{x}=\frac{\comb{13}{x}\times \comb{39}{5-x}}{\comb{52}{5}} \label{2.0.2}
       \end{align}
+      
 \begin{center}
  \lable{TABLE:cases}
  
@@ -194,6 +195,7 @@ P(X) & $\frac{\comb{13}{0}\times\comb{39}{5}}{\comb{52}{5}}$ & $\frac{\comb{13}{
 
 \end{tabular} }
 \end{table}
+So,using table and \eqref{2.0.2}\\ 
 \begin{enumerate}[label=\roman*.]
         \item 
        
