@@ -1,0 +1,190 @@
+
+  
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
+\usepackage{paralist}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+
+\usepackage{longtable}
+\usepackage{multirow}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\begin{document}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\newcommand{\comb}[2]{{}^{#1}\mathrm{C}_{#2}}
+ 
+\providecommand{\abs}[1]{\vert#1\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E[ #1 ]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 2}
+\author{Ayush Kumar Singh - AI20BTECH11028}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+Download all python codes from 
+\begin{lstlisting}
+https://github.com/ayush-2321/AI1103/blob/main/assignment1/problem(a).py
+\end{lstlisting}
+%
+and latex-tikz codes from 
+%
+\begin{lstlisting}
+https://github.com/ayush-2321/AI1103/blob/main/assignment1/asignment1.txt
+\end{lstlisting}
+\section*{  PROBLEM 8 (GATE EE 2018)}
+A class of twelve children has two more boys than girls. A group of three children are randomly picked from this class to accompany the teacher on the field trip. What is the probability that the group accompanying the teacher contains more girls than boys.\\
+\begin{inparaenum}[(A)]
+\item $0$\hspace{1cm}
+\item $\frac{325}{864}$ \hspace{1cm}
+\item$\frac{525}{864}$\hspace{1cm}
+\item$\frac{5}{12}$
+\end{inparaenum}
+
+\section{solution}
+
+Let $X \in \{0,3\}$ be a discrete random variable which denotes the number of girls in the group of 3.\\ 
+Since, there are two more boys than girls:\\
+\begin{align}
+    \text{Total number of boys} (B) = 7  \notag \\
+    \text{Total number of girls} (G) = 5  \notag\\
+    \pr{X=c}=\frac{\comb{5}{c}\times \comb{7}{3-c}}{\comb{12}{3}} \label{1.0.1}
+\end{align}
+\begin{table}[h]
+\resizebox{\columnwidth}{!}{
+    \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        X    & 0 & 1 & 2  & 3                     \\ \hline 
+
+P(X) & $\frac{\comb{5}{0}\times\comb{7}{3}}{\comb{12}{3}}$ & $\frac{\comb{5}{1}\times\comb{7}{2}}{\comb{12}{3}}$ & $\frac{\comb{5}{2}\times\comb{7}{1}}{\comb{12}{3}}$ & $\frac{\comb{5}{3}\times\comb{7}{0}}{\comb{12}{3}}$ &  
+\hline
+ \end{tabular}
+}
+\caption{Probabilities of each case }    \label{tab:my_label}
+\end{table}
+
+For number of girls more than boys following cases are possible
+\begin{enumerate}
+    \item X=3
+    \begin{align}
+        \pr{X=3} = \frac{\comb{5}{3}}{\comb{12}{3}}, \text{using \eqref{1.0.1}} \notag
+    \end{align}
+    \item X=3
+    \begin{align}
+        \pr{X=2} = \frac{\comb{5}{2}\times\comb{7}{1}}{\comb{12}{3}}, \text{using \eqref{1.0.1}} \notag
+    \end{align}
+\end{enumerate}
+\begin{align}
+   \text {So, required probability }=  \frac{\comb{5}{2}\times\comb{7}{1}}{\comb{12}{3}} + \frac{\comb{5}{3}}{\comb{12}{3}} = \frac{4}{11} \notag
+\end{align}
+
+
+ 
+
+
+
+
+
+\end{document}
