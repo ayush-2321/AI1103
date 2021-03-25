@@ -126,23 +126,22 @@ columns=fullflexible
 \renewcommand{\thetable}{\theenumi}
 Download all python codes from 
 \begin{lstlisting}
-https://github.com/ayush-2321/AI1103/blob/main/assignment1/problem(a).py
+https://github.com/ayush-2321/AI1103/tree/main/assignment2
 \end{lstlisting}
 %
 and latex-tikz codes from 
 %
 \begin{lstlisting}
-https://github.com/ayush-2321/AI1103/blob/main/assignment1/asignment1.txt
+https://github.com/ayush-2321/AI1103/tree/main/assignment2
 \end{lstlisting}
 \section*{  PROBLEM 8 (GATE EE 2018)}
 A class of twelve children has two more boys than girls. A group of three children are randomly picked from this class to accompany the teacher on the field trip. What is the probability that the group accompanying the teacher contains more girls than boys.\\
-\begin{inparaenum}[(A)]
-\item $0$\hspace{1cm}
-\item $\frac{325}{864}$ \hspace{1cm}
-\item$\frac{525}{864}$\hspace{1cm}
+\begin{enumerate}[label=(\alph*)]
+\item $0$\\
+\item $\frac{325}{864}$ \\
+\item$\frac{525}{864}$\\
 \item$\frac{5}{12}$
-\end{inparaenum}
-
+\end{enumerate}
 \section{solution}
 
 Let $X \in \{0,3\}$ be a discrete random variable which denotes the number of girls in the group of 3.\\ 
