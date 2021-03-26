@@ -170,7 +170,7 @@ For number of girls more than boys following cases are possible
     \begin{align}
         \pr{X=3} = \frac{\comb{5}{3}}{\comb{12}{3}}, \text{using \eqref{1.0.1}} \notag
     \end{align}
-    \item X=3
+    \item X=2
     \begin{align}
         \pr{X=2} = \frac{\comb{5}{2}\times\comb{7}{1}}{\comb{12}{3}}, \text{using \eqref{1.0.1}} \notag
     \end{align}
