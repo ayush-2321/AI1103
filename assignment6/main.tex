@@ -1,0 +1,395 @@
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{subcaption}
+\usepackage{url}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{tkz-fct}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{tkz-euclide} 
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usetheme{Boadilla}
+\title{AI1103 Project}
+\author{Ayush Kumar Singh- AI20BTECH11028}
+\date{}
+\begin{document}
+\begin{frame}
+\titlepage
+\end{frame}
+\section{}
+\begin{frame}{Comparision of Various Techniques for Speaker Recognition }
+\begin{block}{Abstract}
+In this presentation, a comparision on different speaker recognition technique is shown. The techniques are vector quantization (VQ) using Linde Bozo Gray(LBG), gaussian Mixture Model (GMM) using EM algorithm and Hidden Markov Model(HMM).
+VQ adds the method of considering a large group of feature vectors of a known user and generating a smaller group of feature vectors that signifies the centroid of spreading, i.e. points set apart, so as to reduce the distance between the points. The GMM can be represented in the form of a summation of the VQ model where the clusters are overlying. HMM is a finite group of states, each of which is
+united with a probability distribution.
+\end{block}
+\end{frame}
+\section{Introduction}
+\begin{frame}{A brief Overview on speaker recognition}
+\begin{block}
+ 
+
+All speakers recognition systems contain three main
+modules: \\
+(a) Acoustic Processing (b) Feature Extraction (c)
+Feature Matching.\\
+\begin{enumerate}
+\item In acoustic processing, an analog signal is received from a speaker and regenerates it into a digital signal for additional
+digital processing. 
+\item The signal is then fed into the spectral
+instrument for feature extraction.
+\item Feature matching includes the particular method to spot the
+unknown speaker by analysis the extracted features from voice
+input with those from a group of well-known speakers.
+\end{enumerate}
+\end{block}
+
+\end{frame}
+\begin{frame}{Some important concepts}
+\textbf{Clustering: grouping of data}\\
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{project 1.PNG}
+    
+    
+\end{figure}
+Let $X= [X_{1}, X_{2}]$ be a feature vector. Above figure shows distribution for a sample of data.
+\end{frame}
+
+\begin{frame}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{project 2.PNG}
+    
+    
+\end{figure}
+Now, upon using a clustering algorithm we can get a group of clusters for these non labelled data.\\
+This is useful since in methods like VQ and GMM we extract the features of a sample of data and try to make clusters based upon various algorithm which is explained in detail later.
+
+\end{frame}
+\begin{frame}{Vector Quantization (VQ)}
+In VQ technique, a vector of a large space is mapped to a
+fixed number of regions in that space. These types of regions
+are called clusters and these are represented by its center that is also known as centroid.\\
+\begin{block}{}
+\textbf{Vector quantization as a Data Compressor}   
+
+For the process of speech coding the step of quantization is
+mandatory for reducing the bits number that have been used to
+characterize the samples of a signal.\\
+In vector quantization we prepare a code book and for storing a vector we find the minimum distortion of the given vectors with code vectors to find the index of the vector. \\
+Distortion of a vector is given by:\\
+\begin{align}
+   Distortion = |X-Y_{i}|^{2}
+\end{align}
+where $Y_{i}$ denotes the code vector and X is the given feature vector 
+
+\end{block}
+\end{frame}
+\begin{frame}{Working of VQ  }
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{VQ.jpg}
+    
+    
+\end{figure}
+\begin{enumerate}
+\item We first find the minimum distortion for a given vector from codebook and assign an index to the given vector.\\
+\item To retrieve the value of a vector we simply use to lookup table to find the vector value from the obtained index.\\
+
+\end{enumerate}
+\end{frame}
+\begin{frame}{Formation of Codebbok}
+LBG algorithmic rule is employed for clump a group of L training vectors into a group of M codebook vectors is being employed. The LBG algorithm is used to design the codebook which is further used in clustering.
+\begin{enumerate}
+\item
+Assume a random vector as centroid for first cluster
+\item 
+Split the centroid which doubles the size of
+present codebook $Y_{n}$. It can be represented as per
+rule:
+\begin{align}
+    Y_{n}^{+}=Y_{n}(1+\beta), Y_{n}^{-}=Y_{n}(1-\beta)
+\end{align}
+where the range of n is from 1 to the size of the
+present codebook and $\beta$ is known as splitting
+parameter.
+
+\item  Assign each training vector to a cluster related with
+the nearest code vector through nearest neighbor search
+procedure.
+\item  Update each centroid of a codebook.
+\item  At last the distortion of each training vector is measured by repeating third and fourth
+step until the distance lies below threshold value.
+\item  Repeat above steps until codebook of size M is obtained.
+\end{enumerate}
+\end{frame}
+\begin{frame}{Example}
+ \textbf{QUESTION}\\
+ For a given vector [2,3] and cluster centroids [0,0], [1,0] and [2,0], find the cluster in which the given vector belongs.
+ \begin{block}{}
+  \textbf{SOLUTION}\\
+  To find the cluster we have to calculate the distortion of the given given vector with each cluster centroid\\
+ \begin{align}
+      d_{1}= (2-0)^{2} + (3-0)^{2}=13\\
+      d_2= (2-1)^{2} + (3-0)^{2}=10\\
+      d_{3}= (2-2)^{2} + (3-0)^{2}=9
+ \end{align}
+  Since $d_{3}$ is minimum, the given vector belongs in the third cluster.
+  
+ \end{block}
+ \end{frame}
+\begin{frame}{Gaussian Mixture Model}
+
+\begin{block}{Mixture Model}
+A mixture model is a probabilistic model in which probability distribution is represented as a combination of simpler component distribution.\\
+A gaussian mixture model on the other end is a mixture model in which each component is assumed to be gaussian.\\
+Gaussian Mixture Model is also a clustering algorithm in which feature vector of training speech data is organised in form of cluster and speech recognition is done on the basis of cluster in which the given feature vector belong.
+
+
+\end{block}
+\end{frame}
+\begin{frame}{Gaussian Mixtures}
+\begin{enumerate}
+    \item Linear super position of Gaussians
+    \begin{align}
+        p(x)= \sum_{K=1}^{K}\Pi_{k}N\left(x| \mu_{k},\sum_{k}\right)
+        \end{align}
+        where k= number of gaussians\\ $\pi_{k}$=weight of each gaussian,\\ $\mu_{k}$=mean,\\ $\sum_{k}$=covariance.
+        
+        
+        \item Normalization and positivity:
+        \begin{align}
+            0 \leqq \mu_{k} \leqq 1, \sum_{k=1}^{n}\pi_{k}=1
+        \end{align}
+        \item log - likelihood:
+        \begin{align}
+            ln p(x_{n})=\sum_{n=1}^{N}ln\left(\sum_{K=1}^{K}\Pi_{k}N\left(x| \mu_{k},\sum_{k}\right)\right)
+        \end{align}
+        where N= number of data points
+  
+\end{enumerate}
+\end{frame}
+\begin{frame}{Why a new clustering algorithm?}
+ \begin{block}{Limitation of LBG algorithm}
+ \begin{enumerate}
+     \item An instance of data belong to only one cluster
+     \item overlapping clusters not possible
+     \item Not a probabilistic model.
+     \item Prefers equal sized cluster
+ \end{enumerate}
+ \end{block}
+\end{frame}
+\begin{frame}{Simulation}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\columnwidth]{data points.jpeg}
+    \caption{data points}
+    \end{figure}
+    \begin{figure}
+    
+    \includegraphics[width=0.4\columnwidth]{K means.jpeg}
+    \caption{clustering with k means(LBG)}
+    
+\end{figure}
+
+\end{frame}
+\begin{frame}{cntd.}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\columnwidth]{gmm.jpeg}
+    \caption{clustering with Gaussian Mixture Model}
+    
+    
+\end{figure}
+
+Hence, we can easily see that due to equal size limitation of LBG algorithm the clusters are not suitable for a complex arrangement of data points and gaussian mixture model is preferable.
+
+
+
+
+\end{frame}
+\begin{frame}{Latent variabe: posterior probability}
+\begin{enumerate}
+    \item We can think of mixing coefficient as prior probabilities for each component.
+    \item
+    For a given value of x we can evaluate the corresponding posterior probabilities, called responsibilities
+\end{enumerate}
+\begin{align}
+    \gamma(x)=P(K|x)=\frac{p(k)p(x|k)}{p(x)}\\
+    =\frac{\Pi_{k}N\left(x| \mu_{k},\sum_{k}\right)}{\sum_{j=1}^{K}\Pi_{j}N\left(x| \mu_{j},\sum_{j}\right)}
+\end{align}
+where \pi_{k}=\frac{N_{k}}{N} and N_{k} is the effective number of points assigned to a given cluster.
+
+\end{frame}
+\begin{frame}{Expectation Maximization}
+
+\begin{enumerate}
+    \item EM algorithm is an iterative optimization technique which is operated locally.
+    \item Estimation step : For given parameter value we compute the expected value of latent variable(responsibility).
+    \item Maximization Step: Update the parameters of the model  based on the value of the latent variable calculated.
+    \item Given a Gaussian Mixture model our goal is to maximize the likelihood function with respect to the parameters comprising of mean and covariance of the component and mixing coefficients(weight).
+\end{enumerate}
+\end{frame}
+\begin{frame}{EM algorithm}
+    \begin{block}{}
+    \begin{enumerate}
+        \item initialize the mean, covariance and mixing coefficient of the gaussians and evaluate the value of log likelihood.
+        \item Evaluate the responsibility from the given parameter(Estimation step)
+       \begin{align}
+           \gamma(x)=P(K|x)=\frac{p(k)p(x|k)}{p(x)}\\
+    =\frac{\Pi_{k}N\left(x| \mu_{k},\sum_{k}\right)}{\sum_{j=1}^{K}\Pi_{j}N\left(x| \mu_{j},\sum_{j}\right)}
+       \end{align}
+        \item Re evaluate the value of parameters using the calculated responsibility
+        \begin{align}
+            \mu_{j}=\frac{\sum_{n=1}^{N}\gamma_{j}(x_{n})x_{n}}{\sum_{n=1}^{N}\gamma_{j}x_{n}}
+        \end{align}
+    \end{enumerate}
+   
+
+  \end{block}
+\end{frame}
+\begin{frame}{cntd.}
+\begin{block}{}
+    \begin{align}
+         \sum_{j}=\frac{\sum_{n=1}^{N}\gamma_{j}(x_{n})(x_{n}-\mu{j})(x_{n}-\mu{j})^{T}}{\sum_{n=1}^{N}\gamma_{j}x_{n}}
+    \end{align}
+    \begin{align}
+        \pi_{j}=\frac{1}{N}\sum_{n=1}^{N}\gamma_{j}(x_{n})
+    \end{align}
+Now evaluate Log likelihood, if there is no convergence return to step 2 and continue the iteration.
+\end{block}
+    
+\end{frame}
+\begin{frame}{Simulation}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\columnwidth]{EM algo.PNG}
+    \caption{clustering with Gaussian Mixture Model}
+    
+    
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\columnwidth]{em algo2.PNG}
+    \caption{clustering with Gaussian Mixture Model}
+    \end{figure}
+\end{frame}
+\begin{frame}{cntd.}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\columnwidth]{em algo3.PNG}
+    \caption{clustering with Gaussian Mixture Model}
+    \end{figure}
+    \begin{figure}
+    \centering
+    \includegraphics[width=0.3\columnwidth]{em algo 4.PNG}
+    \caption{clustering with Gaussian Mixture Model}
+    \end{figure}
+    
+\end{frame}
+\begin{frame}{Hidden Markov Model}
+\begin{block}{}
+    
+
+This model basically refers to a model where system that is
+modelled by using Markov process in which the states always
+be unobserved. It is characterized as the easiest dynamic
+Bayesian process.\\
+Markov model refers to model in which observer can view
+the state directly, and thus the state transition probabilities are
+the only featured parameters, the HMM, differs in the fact that
+the observer cannot directly view the state, but the output is
+visible in the form of token or data and this output which is
+depends on the state. 
+    \end{block}
+\end{frame}
+\begin{frame}{HMM for pattern matching}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\columnwidth]{hmm.png}
+    \caption{An example of hidden markov model}
+    \end{figure}
+    For the above hidden markov model, suppose we have to find the sequence of state which is most probable for the given observed state $(y_{1},y_{2}... y_{n})$
+    
+   
+    
+\end{frame}
+\begin{frame}{cntd.}
+For that we have to find the sequence of state with maximum probability given Y:
+\begin{align}
+    max_{X=x1,x2...xn} P(X=X_{1},X_{2}..., X_{n} | Y=Y_{1},Y_{2},....Y_{n})\\
+      = \frac{P(Y|X)P(Y)}{P(X)}  \text{From bayes theorem}\\
+     Also,  P(Y|X) = \prod P(Y_{i})P(X_{i})\\
+      P(X_{i})=\prod P(X_{i}| X_{i-1})\\
+     \text{Therefore we get , }max_{X=x1,x2..xn} \prod P(Y_{i}|X_{i})P(X_{i}|X_{i-1})
+\end{align}
+   
+\end{frame}
+
+\begin{frame}{HMM Block Diagram}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{hmm2.PNG}
+    \caption{Block diagram demonstrating HMM}
+    \end{figure}
+    
+\end{frame}
+\begin{frame}{Advantages Of HMM}
+\begin{block}{}
+\begin{enumerate}
+    \item HMM covers both temporal and spectral changeability in 
+flexible manner.
+\item Not only an allophone, phoneme, syllable, or a word
+can be characterised by a HMM, but an entire sentence
+can be represented by 1 large composite HMM.
+\item HMM formulation can be applied not only to English
+but equally well to the other languages.
+\end{enumerate}
+    
+\end{block}
+    
+\end{frame}
+\begin{frame}{conclusion}
+\begin{block}{}
+\begin{enumerate}
+\item The performance of VQ using LBG to measure and create
+the codebook, HMM with suitable algorithm to find the all
+possible probability of given condition and GMM with EM
+algorithm to find the finest value of responsibities (mean,
+standard deviation and the weighting factor of curve) are
+compared for speaker recognition. 
+\item It is confirmed that the
+feature model using GMM is superior to VQ and HMM.
+\item The average recognition rate attained for
+ GMM is 99.22,    for HMM is 97.26 and for VQ with
+LBG is 91.43. These given data are taken based on
+theoretical knowledge of speaker recognition from various
+proposed papers.
+\end{enumerate}
+\end{block}
+
+
+    
+\end{frame}
+
+\end{document}
