@@ -1,0 +1,56 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+# Creating a dataset consisting of clusters
+
+n = 6 #number of clusters
+from sklearn.datasets.samples_generator import make_blobs
+X, y_true = make_blobs(n_samples=400, centers=n, cluster_std=0.60, random_state=0) #change random_state for different distributions
+
+plt.figure(figsize=(8, 6), dpi=80) #for a larger graph
+plt.scatter(X[:, 0], X[:, 1]) #plotting the points
+
+#RUN ONLY WHEN YOU WANT STRETCHED DATA
+
+rng = np.random.RandomState(12)
+X_stretched = np.dot(X, rng.randn(2, 2))
+X = X_stretched
+plt.figure(figsize=(8, 6), dpi=80)
+plt.scatter(X[:, 0], X[:, 1])
+
+
+# Gaussian Mixture Model
+
+#for 1 iteration
+from sklearn import mixture
+model = mixture.GaussianMixture(max_iter=1, n_components=n, covariance_type='full', random_state=2)
+model.fit(X)
+labels = model.predict(X)
+plt.figure(figsize=(8, 6), dpi=80)
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='plasma' )
+plt.show()
+#for 10 iteration
+from sklearn import mixture
+model = mixture.GaussianMixture(max_iter=10, n_components=n, covariance_type='full', random_state=2)
+model.fit(X)
+labels = model.predict(X)
+plt.figure(figsize=(8, 6), dpi=80)
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='plasma' )
+plt.show()
+#for 15 iteration
+from sklearn import mixture
+model = mixture.GaussianMixture(max_iter=15, n_components=n, covariance_type='full', random_state=2)
+model.fit(X)
+labels = model.predict(X)
+plt.figure(figsize=(8, 6), dpi=80)
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='plasma' )
+plt.show()
+#for 20 iteration
+from sklearn import mixture
+model = mixture.GaussianMixture(max_iter=20, n_components=n, covariance_type='full', random_state=2)
+model.fit(X)
+labels = model.predict(X)
+plt.figure(figsize=(8, 6), dpi=80)
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='plasma' )
+plt.show()
